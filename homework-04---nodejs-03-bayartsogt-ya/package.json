@@ -1,0 +1,34 @@
+{
+    "name": "homework-04---nodejs-03-bayartsogt-ya",
+    "version": "1.0.0",
+    "description": "homework 04",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "npx nodemon"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/maharishi-university/homework-04---nodejs-03-bayartsogt-ya.git"
+    },
+    "keywords": [
+        "nodejs",
+        "maharishi",
+        "homework",
+        "rxjs",
+        "subject"
+    ],
+    "author": "bayartsogt-ya",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/maharishi-university/homework-04---nodejs-03-bayartsogt-ya/issues"
+    },
+    "homepage": "https://github.com/maharishi-university/homework-04---nodejs-03-bayartsogt-ya#readme",
+    "dependencies": {
+        "rxjs": "^6.6.6"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.7",
+        "prettier": "2.2.1"
+    }
+}
