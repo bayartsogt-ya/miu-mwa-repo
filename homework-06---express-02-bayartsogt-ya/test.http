@@ -1,0 +1,51 @@
+GET http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+###
+DELETE  http://localhost:3000/users HTTP/1.1
+
+### CORRECT JPG EXAMPLE
+POST http://localhost:3000/users
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="text"
+
+title
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="img_small.jpeg"
+Content-Type: image/jpeg
+
+< ./assets/test_images/img_small.jpeg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+
+### PNG EXAMPLE
+POST http://localhost:3000/users
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="text"
+
+title
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="img_small.png"
+Content-Type: image/png
+
+< ./assets/test_images/img_small.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### >3MB FILE EXAMPLE
+POST http://localhost:3000/users
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="text"
+
+title
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="img_big.jpeg"
+Content-Type: image/jpeg
+
+< ./assets/test_images/img_big.jpeg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
