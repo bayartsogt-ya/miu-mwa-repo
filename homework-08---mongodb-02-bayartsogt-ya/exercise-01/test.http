@@ -1,0 +1,59 @@
+DELETE http://localhost:3000/clear HTTP/1.1
+
+###
+POST http://localhost:3000/fill HTTP/1.1
+content-type: application/json
+
+{
+    "_id":1,
+    "teachers": [
+        {"_id":1, "name":"Asaad"},
+        {"_id":2, "name":"Umur"}
+    ],
+    "courses":[
+        {"_id":1, "students":[
+            {"_id":1, "name":"John"},
+            {"_id":2, "name":"Selin"}
+        ]},
+        {"_id":2, "students":[
+            {"_id":1, "name":"John"},
+            {"_id":2, "name":"Selin"}
+        ]},
+        {"_id":3, "students":[
+            {"_id":1, "name":"John"},
+            {"_id":2, "name":"Selin"}
+        ]}
+    ]
+}
+###
+GET http://localhost:3000
+
+### [x] Add teacher (level 1)
+POST http://localhost:3000/schools/1/teachers HTTP/1.1
+content-type: application/json
+
+{ "_id": 3, "name": "Keith" } 
+
+### [x] Update teacher by ID (level 1)
+PATCH http://localhost:3000/schools/1/teachers/2 HTTP/1.1
+content-type: application/json
+
+{ "name": "Keith Levi" } 
+
+### [x] Delete teacher by ID (level 1)
+DELETE http://localhost:3000/schools/1/teachers/2 HTTP/1.1
+
+### [x] Add a new student to specific course (level 2)
+POST http://localhost:3000/schools/1/courses/2 HTTP/1.1
+content-type: application/json
+
+{ "_id": 3, "name": "Fathi" } 
+
+### [ ] Update a student's name (level 2)
+PATCH http://localhost:3000/schools/1/courses/2/3 HTTP/1.1
+content-type: application/json
+
+{ "name": "Fathi Aswad" } 
+
+###
+DELETE http://localhost:3000/schools/1/courses/2/3 HTTP/1.1
