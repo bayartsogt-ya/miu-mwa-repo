@@ -1,0 +1,49 @@
+DELETE http://localhost:3000/clear HTTP/1.1
+
+###
+POST http://localhost:3000/fill HTTP/1.1
+content-type: application/json
+
+[
+    {
+        "_id": 1,
+        "name": "MIU library",
+        "category": "study", 
+        "location": [-91.9689919,41.017056]
+    },
+    { 
+        "_id": 2,
+        "name": "MIU Argiro",
+        "category": "hangout", 
+        "location": [-91.9682516,41.0167186]
+    },
+    { 
+        "_id": 3,
+        "name": "MIU Recreation Center",
+        "category": "sport", 
+        "location": [-91.9663376,41.0180007]
+    },
+    { 
+        "_id": 4,
+        "name": "MIU Verill Hall",
+        "category": "study", 
+        "location": [-91.9678682,41.0158722]
+    },
+    { 
+        "_id": 5,
+        "name": "Logli Store",
+        "category": "store", 
+        "location": [-91.968541,41.0133039]
+    }
+]
+
+###
+GET http://localhost:3000
+
+### Find nearest 3 points
+POST http://localhost:3000/nearest
+Content-Type: application/json
+
+{
+    "location":[-91.968541,41.0133039]
+}
