@@ -1,45 +1,46 @@
-# MWA - Homework 07 - Mongodb 01
-
-## Schema Design Exercise
-
-Create a NoSQL design model for an application to manage a library, taking into consideration the following requirements:
-
-- Books have an `ISBN number` and are categorized by `author` and tagged by `keywords` to facilitate search
-- Books can be borrowed by students, so the librarian will be able to check all borrowed books and their `return date` so he may contact students who are late returning their books.
-
-**`[ANSWER]`**
-
-```js
-Books = [
-    {
-        isbn_number: '123456',
-        author: 'Bayartsogt Yadamsuren',
-        keywords: ['js', 'programming'],
-    },
-];
-
-Students = [
-    {
-        student_name: 'Bayartsogt Yadamsuren',
-        student_id: 'xxxx33',
-        books_borrowed: [
-            {
-                isbn_number: '123456',
-                return_date: '03/28/2021',
-                status: 'not returned',
-            },
-            ...
-        ],
-    },
-];
+# MWA - Homework 08 - Mongodb 02
+## Exercise 01
+Please find below an Express application that connects to a local MongoDB instance, each document has the following structure for `schools` collection:
+```JavaScript
+{
+    "_id":1,
+    "teachers": [
+        {"_id":1, "name":"Asaad"},
+        {"_id":2, "name":"Umur"}
+    ],
+    "courses":[
+        {"_id":1, "students":[
+            {"_id":1, "name":"John"},
+            {"_id":2, "name":"Selin"}
+        ]},
+        {"_id":2, "students":[
+            {"_id":1, "name":"John"},
+            {"_id":2, "name":"Selin"}
+        ]},
+        {"_id":3, "students":[
+            {"_id":1, "name":"John"},
+            {"_id":2, "name":"Selin"}
+        ]}
+    ]
+}
 ```
-
-## Coding Exercise
-
-Create a new DB called `homework07` (Local or DaaS)  
-Using the same source code from `Homework06`, update your Restful API with real DB CRUD operations so you may: `Find/FindOne/Add/Delete` documents.
-
-- Test your API using REST Client.
-- Implement a new route (`GET /search/:q`) to search by student's name if it matches the passed `:q` parameter.
-- Send the results as JSON.
-- Upload your code to Github (without dependencies).
+Your are responsible on completing the code *(after line 50)* for 6 MongoDB queries within 6 pre-defined routes in `app.js` file:
+1. Add teacher *(level 1)*
+2. Update teacher by ID *(level 1)*
+3. Delete teacher by ID *(level 1)*
+4. Add a new student to specific course *(level 2)*
+5. Update a student's name *(level 2)*
+6. Delete a student *(level 2)*
+  
+Notice the `test.http` file which contains a test HTTP Client, and works with [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension in VSCode.
+  
+## Exercise 02
+Write an Express Restful API that uses MongoDB to insert location points as following:
+```javascript
+{ name, category, location: [longitude, latitude]}
+```
+* Look for some locations around MIU campus using Google Maps and use `RestClient` to insert them into your MongoDB collection.   
+* Add the necessary indexes to search by `location`.
+* Write another Restful API that will Find the nearest 3 points to MIU location `(lat: 41.017654, long: -91.9665342)`, your search criteria may include a `category`.
+  
+*Note that Google Maps will give you coordination as `[Lat, Long]`. While MongoDB requires coordination to be saved as `[Long, Lat]`*
